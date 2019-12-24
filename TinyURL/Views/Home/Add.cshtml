@@ -1,0 +1,52 @@
+﻿@model Link
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Generate Url</h1>
+
+@*<form method="post" asp-controller="Home" asp-action="Add">
+        <div class="form-group">
+            <input asp-for="LongURL" class="form-control" placeholder="Past your link" />
+            <span asp-validation-for="LongURL" class="text-danger"></span>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary">Generate</button>
+            </div>
+        </div>
+    </form>*@
+
+<form method="post" asp-controller="Home" asp-action="Add">
+    <div class="form-row">
+        <div class="col-12 mt-3">
+            <label class="float-left" asp-for="LongURL"></label><br />
+            <input asp-for="LongURL" class="form-control" placeholder="Past your link" />
+            <span asp-validation-for="LongURL" class="text-danger float-left"></span>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="float-left" asp-for="ShortURL"></label><br />
+            <input asp-for="ShortURL" class="form-control" placeholder="Input your hash">
+            <span asp-validation-for="ShortURL" class="text-danger float-left"></span>
+        </div>
+        <div class="col mt-3">
+            <button class="btn btn-outline-secondary float-left">Generate</button>
+        </div>
+    </div>
+</form>
+
+
+@if (Model != null)
+    {
+        @if (Model.ShortURL != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <strong>Your short link:</strong> <list-item link="@Model"></list-item>
+        </div>
+        }
+    }
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
+

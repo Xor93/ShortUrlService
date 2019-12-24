@@ -1,0 +1,28 @@
+﻿@model List<Link>
+
+@foreach (var index in Enumerable.Range(0, Model.Count()))
+{
+    <tr>
+        <td hidden>
+            @(index + 1)
+        </td>
+        <td class="text-left url-text-wrap">
+            <a href="@Model[index].LongURL">
+                @Model[index].LongURL
+            </a>
+        </td>
+        <td>
+            <list-item link="@Model[index]"></list-item>
+        </td>
+        <td class="text-left">
+            @Model[index].Added.ToString("dd/MM/yyyy")
+        </td>
+        <td class="text-right">
+            @Model[index].ClickCounter
+        </td>
+        <td class="text-center">
+            <a asp-action="RemoveLink" asp-controller="Home" asp-route-id="@Model[index].Id">Remove</a>
+        </td>
+    </tr>
+}
+

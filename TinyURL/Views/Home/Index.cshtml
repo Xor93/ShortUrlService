@@ -1,0 +1,30 @@
+﻿@model List<Link>
+
+@{
+    ViewData["Title"] = "LinksList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=" alert-primary" role="alert">
+    <div class="col-12 p-1">
+        <h1 class="m-2">Links list</h1>
+    </div>
+</div>
+
+
+
+<table class="table mt-2" id="table">
+    <thead>
+        <tr>
+            <th class="nwrap">Long link</th>
+            <th class="nwrap">Short link</th>
+            <th class="nwrap">Added date</th>
+            <th class="nwrap">UsesCount</th>
+            <th class="nwrap"></th>
+        </tr>
+    </thead>
+    <tbody id="urlsTable" class="">
+        <partial name="_UrlsListPartial" model="@Model" />
+    </tbody>
+</table>
+
